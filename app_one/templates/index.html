@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static './style.css' %}">  
+</head>
+<body>
+    <form action="/results" method="post">
+        {% csrf_token %}
+        <p>Fill out the form:</p>
+        Name: <input type="text" name='name'>
+        Languages: <select name='language'>
+            <option value="python">Python</option>
+            <option value="c#">C#</option>
+            <option value="java">Java</option>
+            <option value="javascript">JavaScript</option>
+            <option value="c">C</option>
+        </select>
+        Locations: <select name='location'>
+            <option value="burbank">Burbank</option>
+            <option value="chicago">Chicago</option>
+            <option value="dallas">Dallas</option>
+            <option value="seattle">Seattle</option>
+            <option value="dc">DC</option>
+        </select>
+        
+        <p> A short description about yourself:</p>
+             <textarea name="description"></textarea>
+
+        <input type="submit" value='View User'>
+</form>
+</body>
+</html>
